@@ -1,26 +1,26 @@
 #include<iostream>
 #include<conio.h>
 using namespace std;
-
-int fact(int f)
+int fact(int n)
 {
-    int fact=1;int i=0;
-    while(f>0)
-    {   i++;
-        fact=fact*i;
-        f--;
-    }
-    return fact;
+if(n==0)return 1;
+return fact(n-1)*n;
 }
-int ncr(int n,int r)
+int nCr(int n,int r)
 {
-    if(n<=1)
-        return 1;
-   return fact(n)/(fact(r)*fact(n-1));
-
+int num,den;
+num=fact(n);
+den=fact(r)*fact(n-r);
+return num/den;
 }
-
+int NCR(int n,int r)
+{
+if(n==r || r==0)
+return 1;
+return NCR(n-1,r-1)+NCR(n-1,r);
+}
 int main()
 {
-    cout<<ncr(4,3);
+printf("%d \n",NCR(5,3));
+return 0;
 }
